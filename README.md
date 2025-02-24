@@ -4,6 +4,51 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+#### 環境について
+
+WSL2
+OracleLinux 9.1  
+nvm ver.0.39.3  
+node ver.22.14.0  
+npm ver.10.9.2  
+Next.js ver.15.1.7  
+TypeScript ver.5.7.3  
+mysql ver.8.0.41 for Linux on x86_64 (MySQL Community Server - GPL)
+
+#### 仮想起動について
+
+WSLバージョン確認　※ WSL2のみ実行可能
+
+```bash
+$ wsl --version
+```
+
+有効ディストリビューション確認　※MicrosoftStoreからインストールしておく
+
+```bash
+$ wsl --list --online
+```
+
+Oracle Linux 9.1 のインストール
+
+```bash
+$ wsl --install OracleLinux_9_1
+```
+
+systemd & sshd の有効化
+
+```bash
+$ sudo vi /etc/wsl.conf
+[boot]
+systemd=true
+
+$ sudo systemctl enable sshd
+$ sudo systemctl start  sshd
+```
+
+ネットワークアダプター確認  
+InterfaceDescription --> Hyper-V Virtual Ethernet Adapter Status UP確認
+
 ```bash
 npm run dev
 # or
