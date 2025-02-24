@@ -6,7 +6,7 @@ nvm     ver.0.39.3
 node    ver.22.14.0  
 npm     ver.10.9.2  
 Next.js ver.15.1.7  
-TypeScript ver.5.7.3  
+TypeScript ver.5.7.3
 mysql ver.8.0.41 for Linux on x86_64 (MySQL Community Server - GPL)
 
 #### 仮想起動について
