@@ -6,9 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "eslint app --fix && prettier --write app"
   },
   "dependencies": {
+    "@mui/icons-material": "^6.4.5",
+    "@mui/material": "^6.4.5",
     "autoprefixer": "^10.4.20",
     "mysql2": "^3.12.0",
     "next": "15.1.7",
@@ -20,9 +23,12 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "eslint": "^8.57.1",
     "eslint-config-next": "15.1.7",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-standard": "^17.1.0",
     "postcss": "^8.5.3",
+    "prettier": "^3.5.2",
     "typescript": "^5"
   }
 }
