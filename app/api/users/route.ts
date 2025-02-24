@@ -20,13 +20,15 @@ export async function POST(request: Request) {
     const { name, email } = body;
 
     if (!name || !email) {
-      return NextResponse.json({ error: 'Name and email are required' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Name and email are required' },
+        { status: 400 }
+      );
     }
 
-    const [result] = await db.promise().query(
-      'INSERT INTO users (name, email) VALUES (?, ?)',
-      [name, email]
-    );
+    const [result] = await db
+      .promise()
+      .query('INSERT INTO users (name, email) VALUES (?, ?)', [name, email]);
 
     return NextResponse.json({ message: 'User created', userId: result });
   } catch (error) {

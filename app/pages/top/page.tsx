@@ -1,9 +1,14 @@
 // app/pages/top/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
-
+import { Stack, Button } from '@mui/material';
 export default function Top() {
-  const [users, setUsers] = useState<any[]>([]);
+  type User = {
+    id: number;
+    name: string;
+    email: string;
+  };
+  const [users, setUsers] = useState<User[]>([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -55,33 +60,41 @@ export default function Top() {
 
   return (
     <div style={{ padding: '20px' }}>
+      <Stack spacing={2} direction='row'>
+        <Button variant='text'>Text</Button>
+        <Button variant='contained'>Contained</Button>
+        <Button variant='outlined'>Outlined</Button>
+      </Stack>
       <h1>Users List</h1>
-      <a href="/pages/next">next</a>
+
+      <a href='/pages/next'>next</a>
       {/* ユーザー登録フォーム */}
       <form onSubmit={handleAddUser} style={{ marginBottom: '20px' }}>
         <input
-          type="text"
-          placeholder="名前"
+          type='text'
+          placeholder='名前'
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
           style={{ marginRight: '10px' }}
         />
         <input
-          type="email"
-          placeholder="メールアドレス"
+          type='email'
+          placeholder='メールアドレス'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
           style={{ marginRight: '10px' }}
         />
-        <button type="submit">追加</button>
+        <button type='submit'>追加</button>
       </form>
 
       {/* ユーザー一覧表示 */}
       <ul>
-        {users.map((user: any) => (
-          <li key={user.id}>{user.name} ({user.email})</li>
+        {users.map((user: User) => (
+          <li key={user.id}>
+            {user.name} ({user.email})
+          </li>
         ))}
       </ul>
     </div>
