@@ -65,3 +65,5 @@ export & import
 $ wsl --export OracleLinux_9_1 C:\Users\xxxx\backup.tar
 $ wsl --import OracleLinux_9_1 C:\Users\xxxx\wsl D:\backup.tar
 ```
+起動  
+$ npm run dev
