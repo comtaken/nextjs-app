@@ -3,9 +3,9 @@
 
 export default function Next() {
   return (
-    <div style={{ padding: '20px' }}>
+    <div>
       <h1>next</h1>
-      <a href="/pages/top">back</a>
+      <a href='/pages/top'>back</a>
     </div>
   );
 }

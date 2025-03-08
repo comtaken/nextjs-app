@@ -1,6 +1,8 @@
 // app/pages/top/page.tsx
 'use client';
 import { useEffect, useState } from 'react';
+import { MessageProvider, useMessage } from '../../components/MessageContext';
+
 import { Stack, Button } from '@mui/material';
 export default function Top() {
   type User = {
@@ -11,7 +13,6 @@ export default function Top() {
   const [users, setUsers] = useState<User[]>([]);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-
   // ユーザー一覧取得
   useEffect(() => {
     fetchUsers();
@@ -59,14 +60,16 @@ export default function Top() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <Stack spacing={2} direction='row'>
+    <div>
+      {/* <Stack spacing={2} direction='row'>
         <Button variant='text'>Text</Button>
         <Button variant='contained'>Contained</Button>
         <Button variant='outlined'>Outlined</Button>
-      </Stack>
+      </Stack> */}
       <h1>Users List</h1>
-
+      <MessageProvider>
+        <MessageComponent />
+      </MessageProvider>
       <a href='/pages/next'>next</a>
       {/* ユーザー登録フォーム */}
       <form onSubmit={handleAddUser} style={{ marginBottom: '20px' }}>
@@ -100,3 +103,8 @@ export default function Top() {
     </div>
   );
 }
+// useMessage() を使用するコンポーネントを追加
+const MessageComponent = () => {
+  const { message } = useMessage();
+  return <h2>{message}</h2>;
+};
